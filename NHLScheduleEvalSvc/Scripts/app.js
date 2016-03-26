@@ -44,7 +44,7 @@
             ajaxHelper(b2bComparisonUri + item.Id, 'GET').done(function (data) {
                 $("#spinnerDetail").remove();
                 $('#detailTeamName').text(item.TeamName);
-                $('#detailTeamCount').text(' - Count: ' + item.Count);
+                $('#detailTeamCount').text(' - ' + item.Count);
                 data.forEach(function (entry) {
                     entry.GameOneDate = entry.GameOneDate.replace('T00:00:00', '')
                     entry.GameTwoDate = entry.GameTwoDate.replace('T00:00:00', '')
