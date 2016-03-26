@@ -25,6 +25,7 @@ namespace NHLScheduleEvalSvc.Controllers
             return db.B2BComparison.Include(b => b.Team);
         }
 
+        // GET: api/B2BComparison/5
         [ResponseType(typeof(B2BDetailDTO))]
         public async Task<IHttpActionResult> GetB2BComparison(string id)
         {

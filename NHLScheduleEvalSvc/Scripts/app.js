@@ -46,8 +46,8 @@
                 $('#detailTeamName').text(item.TeamName);
                 $('#detailTeamCount').text(' - ' + item.Count);
                 data.forEach(function (entry) {
-                    entry.GameOneDate = entry.GameOneDate.replace('T00:00:00', '')
-                    entry.GameTwoDate = entry.GameTwoDate.replace('T00:00:00', '')
+                    entry.GameOneDate = ('0' + new Date(entry.GameOneDate).toLocaleDateString('en-US')).slice(-10);
+                    entry.GameTwoDate = ('0' + new Date(entry.GameTwoDate).toLocaleDateString('en-US')).slice(-10);
                 })
                 self.detail(data);
             });
