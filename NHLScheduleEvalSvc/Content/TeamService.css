@@ -46,8 +46,8 @@
 }
 
 .teamContainer ul li a:hover {
-    color: #3385ff;
-    font-size:13px;
+    color: #428bca;/* #3385ff;*/
+    font-size:13.5px;
 }
 
 .teamContainerList {
@@ -64,11 +64,14 @@
 }
 
 #detailTeamName{
-    padding-left:15px;
     padding-top:10px;
     font-size: 1.2em;
 }
 
 #detailTeamHeader{
-    margin:10px 5px;
+    margin: 10px 0px 5px 15px;
+}
+
+.downLoadLink{
+    margin: 3px 15px;
 }

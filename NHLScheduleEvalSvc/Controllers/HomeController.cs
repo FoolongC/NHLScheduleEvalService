@@ -10,7 +10,7 @@ namespace NHLScheduleEvalSvc.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "NHL Schedule Evaluation Service";
 
             return View();
         }
