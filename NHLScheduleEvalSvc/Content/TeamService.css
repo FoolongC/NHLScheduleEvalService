@@ -1,0 +1,74 @@
+﻿/*.teamServicePanel {
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}*/
+
+.teamServicePanel-default {
+    border-color: red;
+    /*border: 1px solid transparent;*/
+}
+
+
+.teamServicePanel {
+    color: #333333;
+    border-color: red;
+    /*border: 1px solid transparent;*/
+}
+
+
+.teamServicePanel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent ;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    background-color: #4b6c9e;
+    /*border: 1px solid transparent;*/
+}
+
+.teamServicePanel h2 {
+    color: #f9f9f9;
+    line-height: 1.1em;
+    font-size: 1.1em;
+}
+
+.teamContainer {
+    padding-left: 27px;
+    padding-top: 10px;
+}
+
+.teamContainer ul li a  {
+    color: #333333;
+    text-decoration:none;
+}
+
+.teamContainer ul li a:hover {
+    color: #3385ff;
+    font-size:13px;
+}
+
+.teamContainerList {
+    padding-bottom: 7px;
+    padding-top: 10px;
+}
+
+.detailContainer {
+    padding-left: 25px;
+}
+
+.detailContainerSpan {
+    padding-bottom: 7px;
+}
+
+#detailTeamName{
+    padding-left:15px;
+    padding-top:10px;
+    font-size: 1.2em;
+}
+
+#detailTeamHeader{
+    margin:10px 5px;
+}

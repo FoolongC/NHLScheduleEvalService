@@ -1,0 +1,58 @@
+﻿@section scripts {
+    @Scripts.Render("~/bundles/app")
+}
+<link href="~/Content/TeamService.css" rel="stylesheet" />
+<div class="page-header">
+    <h2>2013 NHL Schedule Evaluation <small>(MVC 5/Web API 2 - Entity Framework 6 - Knockout.js)</small></h2>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Teams</h2>
+            </div>
+            <div class="teamContainer">
+                @*<ul class="list-unstyled teamContainerList" data-bind="foreach: teams">
+                        <li class="teamHover">
+                            <span data-bind="text: TeamName"></span> - Count: <span data-bind="text: Count"></span>
+                            <small><a href="#" data-bind="click: $parent.getTeamDetail">Details</a></small>
+                        </li>
+                    </ul>*@
+                <ul class="list-unstyled" data-bind="foreach: teams">
+                    <li class="teamHover" data-bind="attr: {'id':  + TeamName}">
+                        <a href="#" data-bind="click: $parent.getTeamDetail">
+                            <span data-bind="text: TeamName"></span> - Count: <span data-bind="text: Count"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Detail</h2>
+            </div>
+            <div id="detailTeamHeader">
+                <span id="detailTeamName"></span><span id="detailTeamCount"></span>
+            </div>
+            <ul class="list-unstyled detailContainer" data-bind="foreach: detail">
+                <li>
+                    <p>
+                        <span>Game 1 Date:</span><span data-bind="text: GameOneDate"></span>&nbsp;
+                        <span> - Game 1 Home:</span><span data-bind="text: GameOneHome"></span>
+                        <span>| Game 2 Home:</span><span data-bind="text: GameTwoHome"></span>&nbsp;
+                        <span> - Game 1 Final:</span><span data-bind="text: GameOneFinal"></span><br />
+
+                        <span>Game 2 Date:</span><span data-bind="text: GameTwoDate"></span>&nbsp;
+                        <span> - Opp. Played Day Before:</span><span data-bind="text: OppPlayedDayBefore"></span>&nbsp;
+                        <span>| Game 2 Final:</span><span data-bind="text: GameTwoFinal"></span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
