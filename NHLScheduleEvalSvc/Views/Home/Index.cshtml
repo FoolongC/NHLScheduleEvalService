@@ -17,8 +17,8 @@
             </div>
             <div class="teamContainer">
                 <span id="spinnerTeam" class="spinner"></span>
-                <ul class="list-unstyled" data-bind="foreach: teams">
-                    <li class="teamHover" data-bind="attr: {'id':  + TeamName}">
+                <ul class="list-unstyled fade-in" data-bind="foreach: teams">
+                    <li class="teamHover fade-in" data-bind="attr: {'id':  + TeamName}">
                         <a href="#" data-bind="click: $parent.getTeamDetail">
                             <span data-bind="text: TeamName"></span> <span data-bind="text: Count"></span>
                         </a>
@@ -39,7 +39,7 @@
                 <span id="detailTeamName"></span><span id="detailTeamCount"></span>
             </div>
             <ul class="list-unstyled detailContainer" data-bind="foreach: detail">
-                <li>
+                <li class=" fade-in">
                     <p>
                         <span>Game 1 Date: </span><span data-bind="text: GameOneDate"></span>&nbsp;
                         <span> - Game 1 Home: </span><span data-bind="text: GameOneHome"></span>
