@@ -1,7 +1,7 @@
 ﻿@section scripts {
     @Scripts.Render("~/bundles/app")
 }
-<link href="~/Content/TeamService.css" rel="stylesheet" />
+@*<link href="~/Content/TeamService.css" rel="stylesheet" />*@
 <div class="page-header">
     <h2>2013 NHL Schedule Evaluation <small>(MVC 5/Web API 2 - Entity Framework 6 - Knockout.js)</small></h2>
 </div>
@@ -16,15 +16,16 @@
                 <h2 class="panel-title">Teams</h2>
             </div>
             <div class="teamContainer">
+                <span id="spinnerTeam" class="spinner"></span>
                 <ul class="list-unstyled" data-bind="foreach: teams">
                     <li class="teamHover" data-bind="attr: {'id':  + TeamName}">
                         <a href="#" data-bind="click: $parent.getTeamDetail">
-                            <span data-bind="text: TeamName"></span> - Count: <span data-bind="text: Count"></span>
+                            <span data-bind="text: TeamName"></span> <span data-bind="text: Count"></span>
                         </a>
                     </li>
                 </ul>
             </div>
-            <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
+            <div class="alert alert-danger" data-bind="visible: error" style="display:none;"><p data-bind="text: error"></p></div>
         </div>
     </div>
 
@@ -34,6 +35,7 @@
                 <h2 class="panel-title">Detail</h2>
             </div>
             <div id="detailTeamHeader">
+                <span id="spinnerDetail" class="spinner"></span>
                 <span id="detailTeamName"></span><span id="detailTeamCount"></span>
             </div>
             <ul class="list-unstyled detailContainer" data-bind="foreach: detail">

@@ -75,3 +75,8 @@
 .downLoadLink{
     margin: 3px 15px;
 }
+
+.spinner{
+    display:inline-block;
+    padding-bottom:15px;
+}
