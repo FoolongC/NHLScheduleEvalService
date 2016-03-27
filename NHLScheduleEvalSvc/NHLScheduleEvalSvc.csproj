@@ -219,6 +219,7 @@
     <None Include="Properties\PublishProfiles\NHLScheduleEvalSvc - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\NHLScheduleEvalSvc20160325031706 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\detailViewModel.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\knockout-3.4.0.debug.js" />
@@ -226,7 +227,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\Spinner.js" />
+    <Content Include="Scripts\spinner.js" />
+    <Content Include="Scripts\teamsViewModel.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

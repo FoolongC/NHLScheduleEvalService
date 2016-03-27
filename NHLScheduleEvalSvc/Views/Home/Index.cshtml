@@ -1,7 +1,6 @@
 ﻿@section scripts {
     @Scripts.Render("~/bundles/app")
 }
-@*<link href="~/Content/TeamService.css" rel="stylesheet" />*@
 <div class="page-header">
     <h2>2013 NHL Schedule Evaluation <small>(MVC 5/Web API 2 - Entity Framework 6 - Knockout.js)</small></h2>
 </div>
@@ -11,7 +10,7 @@
         <a href="https://github.com/FoolongC/NHLScheduleEvalService.git" target="_blank">Download Solution</a>
     </div>
     <div class="col-md-3">        
-        <div class="panel panel-default">
+        <div  id="teamsContainer" class="panel panel-default">
             <div class="panel-heading">
                 <h2 class="panel-title">Teams</h2>
             </div>
@@ -28,9 +27,8 @@
             <div class="alert alert-danger" data-bind="visible: error" style="display:none;"><p data-bind="text: error"></p></div>
         </div>
     </div>
-
     <div class="col-md-8">
-        <div class="panel panel-default">
+        <div id="detailContainer" class="panel panel-default">
             <div class="panel-heading">
                 <h2 class="panel-title">Detail</h2>
             </div>
@@ -39,7 +37,7 @@
                 <span id="detailTeamName"></span><span id="detailTeamCount"></span>
             </div>
             <ul class="list-unstyled detailContainer" data-bind="foreach: detail">
-                <li class=" fade-in">
+                <li class="fade-in">
                     <p>
                         <span>Game 1 Date: </span><span data-bind="text: GameOneDate"></span>&nbsp;
                         <span> - Game 1 Home: </span><span data-bind="text: GameOneHome"></span>

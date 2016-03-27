@@ -27,7 +27,9 @@ namespace NHLScheduleEvalSvc
                       "~/Content/TeamService.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                "~/Scripts/knockout-{version}.js", 
+                "~/Scripts/knockout-{version}.js",
+                "~/Scripts/teamsViewModel.js",
+                "~/Scripts/detailViewModel.js",
                 "~/Scripts/app.js",
                 "~/Scripts/spinner.js"));
         }

@@ -1,58 +1,70 @@
-﻿$(document).ready(function () {
+﻿var teamsContainerVM;
+var detailContainerVM;
 
-    var spinner = getSpinner();
-    $('.alert').hide();
+$(document).ready(function () {
 
-    var ViewModel = function () {
-        var self = this;
-        self.teams = ko.observableArray();
-        self.detail = ko.observable();
-        self.error = ko.observable();
+    $('.alert').hide();    
 
-        var teamsUri = '/api/teams/';
-        var b2bComparisonUri = '/api/b2bcomparison/';
+    if ($.isEmptyObject(teamsContainerVM)) {
+        teamsContainerVM = new TeamViewModel();
+        ko.applyBindings(teamsContainerVM, document.getElementById("teamsContainer"));
+    }
 
-        function ajaxHelper(uri, method, data) {
-            self.error('');
-            return $.ajax({
-                type: method,
-                url: uri,
-                dataType: 'json',
-                contentType: 'application/json',
-                data: data ? JSON.stringify(data) : null
-            }).fail(function (jqXHR, textStatus, errorThrown) {
-                self.error(errorThrown);
-            });
-        }
+    if ($.isEmptyObject(detailContainerVM)) {
+        detailContainerVM = new DetailViewModel();
+        ko.applyBindings(detailContainerVM, document.getElementById("detailContainer"));
+    }
 
-        function getAllTeams() {
-            $('#spinnerTeam').append(spinner);
-            ajaxHelper(teamsUri, 'GET').done(function (data) {
-                $('#spinnerTeam').remove();
-                data.forEach(function (entry) {
-                    entry.Count = 'Count: ' + entry.Count;
-                })
-                self.teams(data);
-            });
-        }
+    //var ViewModel = function () {
+    //    var self = this;
+    //    self.teams = ko.observableArray();
+    //    self.detail = ko.observable();
+    //    self.error = ko.observable();
 
-        getAllTeams();
+    //    var teamsUri = '/api/teams/';
+    //    var b2bComparisonUri = '/api/b2bcomparison/';
 
-        self.getTeamDetail = function (item) {
-            self.detail('');
-            $('#spinnerDetail').append(spinner);
-            ajaxHelper(b2bComparisonUri + item.Id, 'GET').done(function (data) {
-                $("#spinnerDetail").remove();
-                $('#detailTeamName').text(item.TeamName);
-                $('#detailTeamCount').text(' - ' + item.Count);
-                data.forEach(function (entry) {
-                    entry.GameOneDate = ('0' + new Date(entry.GameOneDate).toLocaleDateString('en-US')).slice(-10);
-                    entry.GameTwoDate = ('0' + new Date(entry.GameTwoDate).toLocaleDateString('en-US')).slice(-10);
-                })
-                self.detail(data);
-            });
-        }
-    };
+    //    function ajaxHelper(uri, method, data) {
+    //        self.error('');
+    //        return $.ajax({
+    //            type: method,
+    //            url: uri,
+    //            dataType: 'json',
+    //            contentType: 'application/json',
+    //            data: data ? JSON.stringify(data) : null
+    //        }).fail(function (jqXHR, textStatus, errorThrown) {
+    //            self.error(errorThrown);
+    //        });
+    //    }
 
-    ko.applyBindings(new ViewModel());
+    //    function getAllTeams() {
+    //        $('#spinnerTeam').append(spinner);
+    //        ajaxHelper(teamsUri, 'GET').done(function (data) {
+    //            $('#spinnerTeam').remove();
+    //            data.forEach(function (entry) {
+    //                entry.Count = 'Count: ' + entry.Count;
+    //            })
+    //            self.teams(data);
+    //        });
+    //    }
+
+    //    getAllTeams();
+
+    //    self.getTeamDetail = function (item) {
+    //        self.detail('');
+    //        $('#spinnerDetail').append(spinner);
+    //        ajaxHelper(b2bComparisonUri + item.Id, 'GET').done(function (data) {
+    //            $("#spinnerDetail").remove();
+    //            $('#detailTeamName').text(item.TeamName);
+    //            $('#detailTeamCount').text(' - ' + item.Count);
+    //            data.forEach(function (entry) {
+    //                entry.GameOneDate = ('0' + new Date(entry.GameOneDate).toLocaleDateString('en-US')).slice(-10);
+    //                entry.GameTwoDate = ('0' + new Date(entry.GameTwoDate).toLocaleDateString('en-US')).slice(-10);
+    //            })
+    //            self.detail(data);
+    //        });
+    //    }
+    //};
+
+    //ko.applyBindings(new ViewModel());
 });
