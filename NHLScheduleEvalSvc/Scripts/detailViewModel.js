@@ -23,8 +23,12 @@
             $('#detailTeamName').text(item.TeamName);
             $('#detailTeamCount').text(' - ' + item.Count);
             data.forEach(function (entry) {
-                entry.GameOneDate = ('0' + new Date(entry.GameOneDate).toLocaleDateString('en-US')).slice(-10);
-                entry.GameTwoDate = ('0' + new Date(entry.GameTwoDate).toLocaleDateString('en-US')).slice(-10);
+                var date = new Date(entry.GameOneDate);
+                date =  date.setDate(date.getDate() + 1);
+                entry.GameOneDate = ('0' + new Date(date).toLocaleDateString('en-US')).slice(-10);
+                date = new Date(entry.GameTwoDate);
+                date = date.setDate(date.getDate() + 1);
+                entry.GameTwoDate = ('0' + new Date(date).toLocaleDateString('en-US')).slice(-10);
             })
             self.detail(data);
         });
