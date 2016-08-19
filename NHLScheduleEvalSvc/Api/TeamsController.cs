@@ -19,27 +19,27 @@ namespace NHLScheduleEvalSvc.Controllers
 
         public IQueryable<B2BTeamDTO> GetTeams()
         {
-            var teams = from t in db.Teams
+            var nhlTeams = from t in db.Teams
                 select new B2BTeamDTO
                 {
                     Id = t.Id,
                     TeamName = t.TeamName,
                     Count = t.Count
                 };
-            return teams;
+            return nhlTeams;
         }
 
         [ResponseType(typeof(B2BTeamDTO))]
         public async Task<IHttpActionResult> GetTeam(int id)
         {
-            var team = await db.Teams.Include(t => t.TeamName).Select(t =>
+            var nhlTeam = await db.Teams.Include(t => t.TeamName).Select(t =>
                 new B2BTeamDTO()
                 {
                     Id = t.Id,
                     TeamName = t.TeamName,
                     Count = t.Count
                 }).SingleOrDefaultAsync(t => t.Id == id);
-            return Ok(team);
+            return Ok(nhlTeam);
         }
 
         // PUT: api/Teams/5
